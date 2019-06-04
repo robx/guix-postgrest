@@ -1,0 +1,13 @@
+Skip phantomjs tests.
+
+--- a/wai-cors.cabal	2017-12-02 19:58:59.000000000 +0100
++++ b/wai-cors.cabal	2019-06-03 22:02:32.792000000 +0200
+@@ -102,6 +102,8 @@
+     ghc-options: -Wall
+ 
+ Test-Suite phantomjs
++    buildable: False
++
+     type: exitcode-stdio-1.0
+     default-language: Haskell2010
+     main-is: PhantomJS.hs
