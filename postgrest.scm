@@ -10,9 +10,9 @@
   #:use-module (gnu packages haskell-web)
   #:use-module (postgrest-deps))
 
-(define-public ghc-postgrest
+(define-public postgrest
   (package
-    (name "ghc-postgrest")
+    (name "postgrest")
     (version "5.2.0")
     (source
       (origin
