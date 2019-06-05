@@ -945,7 +945,6 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
         (base32
          "1hvdkcyrlnv65q8x8h0441x30wr9bbfbg3961xd3fy9an5r961fc"))))
     (build-system haskell-build-system)
-    (inputs `(("ghc-pretty" ,ghc-pretty)))
     (home-page "https://github.com/liskin/loch-th")
     (synopsis
      "Support for precise error locations in source files (Template Haskell version)")
@@ -1123,29 +1122,6 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
     (synopsis "low-level binding to libpq")
     (description
      "This is a binding to libpq: the C application programmer's interface to PostgreSQL. libpq is a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.")
-    (license bsd-3)))
-
-(define-public ghc-pretty
-  (package
-    (name "ghc-pretty")
-    (version "1.1.3.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/pretty/pretty-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1s363nax6zxqs4bnciddsfc2sanv1lp4x02y58z3yzdgrciwq4pb"))))
-    (build-system haskell-build-system)
-    ;(native-inputs `(("ghc-quickcheck" ,ghc-quickcheck)))
-    (arguments `(#:tests? #f)) ; test failure: https://github.com/haskell/pretty/pull/51
-    (home-page "http://github.com/haskell/pretty")
-    (synopsis "Pretty-printing library")
-    (description
-     "This package contains a pretty-printing library, a set of API's that provides a way to easily print out text in a consistent format of your choosing. This is useful for compilers and related tools. . This library was originally designed by John Hughes's and has since been heavily modified by Simon Peyton Jones.")
     (license bsd-3)))
 
 (define-public ghc-protolude
@@ -1464,8 +1440,7 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
          "02sadjd19dbxzawr1q8z3j7w6vhp5mvz1dbssk118hsvl6k0234g"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-pretty" ,ghc-pretty)
-       ("ghc-text-latin1" ,ghc-text-latin1)
+     `(("ghc-text-latin1" ,ghc-text-latin1)
        ("ghc-semigroups" ,ghc-semigroups)))
     (arguments `(#:tests? #f))
     (home-page "https://github.com/mvv/text-printer")
