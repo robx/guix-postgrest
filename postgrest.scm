@@ -6,9 +6,21 @@
   #:use-module (guix licenses)
   #:use-module (guix packages)
 
+  #:use-module (bytestring)
+  #:use-module (check)
+  #:use-module (containers)
+  #:use-module (control)
+  #:use-module (core)
+  #:use-module (data)
+  #:use-module (more-data)
+  #:use-module (sql)
+  #:use-module (template)
+  #:use-module (text)
+  #:use-module (wai)
+  #:use-module (postgrest-deps)
+
   #:use-module (gnu packages haskell)
-  #:use-module (gnu packages haskell-web)
-  #:use-module (postgrest-deps))
+  #:use-module (gnu packages haskell-web))
 
 (define-public postgrest
   (package
