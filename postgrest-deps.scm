@@ -1142,7 +1142,6 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
     (inputs
      `(("ghc-async" ,ghc-async)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-stm" ,ghc-stm)
        ("ghc-mtl-compat" ,ghc-mtl-compat)
        ("ghc-transformers-compat"
         ,ghc-transformers-compat)))
@@ -1195,7 +1194,6 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
     (build-system haskell-build-system)
     (inputs
       `(("ghc-async" ,ghc-async)
-        ("ghc-stm" ,ghc-stm)
         ("ghc-exceptions" ,ghc-exceptions)
         ("ghc-ansi-terminal" ,ghc-ansi-terminal)
         ("ghc-terminal-size" ,ghc-terminal-size)))
@@ -1236,7 +1234,6 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
         ("ghc-random" ,ghc-random)
         ("ghc-resourcet" ,ghc-resourcet)
         ("ghc-semigroups" ,ghc-semigroups)
-        ("ghc-stm" ,ghc-stm)
         ("ghc-transformers-base" ,ghc-transformers-base)
         ("ghc-wl-pprint-annotated"
          ,ghc-wl-pprint-annotated)))
