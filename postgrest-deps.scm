@@ -476,36 +476,6 @@ Please refer to the documentation in \"Data.Csv\" and the included [README](#rea
      "This package provides an interface for converting between data and its (human-friendly) textual representation.")
     (license bsd-3)))
 
-(define-public ghc-deepseq
-  (package
-    (name "ghc-deepseq")
-    (version "1.4.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/deepseq/deepseq-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0fjdmsd8fqqv78m7111m10pdfswnxmn02zx1fsv2k26b5jckb0bd"))))
-    (build-system haskell-build-system)
-    (native-inputs
-     `(("ghc-hunit" ,ghc-hunit)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)))
-    (arguments
-     `(#:cabal-revision
-       ("1"
-        "0djisxi7z2xyx3wps550avgz5x56rl4xzks17j996crdsrdrcqh9")))
-    (home-page
-     "http://hackage.haskell.org/package/deepseq")
-    (synopsis "Deep evaluation of data structures")
-    (description
-     "This package provides methods for fully evaluating data structures (\\\"deep evaluation\\\"). Deep evaluation is often used for adding strictness to a program, e.g. in order to force pending exceptions, remove space leaks, or force lazy I/O to happen. It is also useful in parallel programs, to ensure pending work does not migrate to the wrong thread. . The primary use of this package is via the 'deepseq' function, a \\\"deep\\\" version of 'seq'. It is implemented on top of an 'NFData' typeclass (\\\"Normal Form Data\\\", data structures with no unevaluated components) which defines strategies for fully evaluating different data types.")
-    (license bsd-3)))
-
 (define-public ghc-directory
   (package
     (name "ghc-directory")
