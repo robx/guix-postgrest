@@ -21,10 +21,10 @@
         (uri
            (git-reference
              (url "https://github.com/robx/postgrest.git")
-             (commit "guix-0.2")))
+             (commit "guix-0.3")))
         (sha256
           (base32
-            "1f3wz1s0ckpivh5hifnmk57fb5290fk45abjxpk3bgd2r7ci7fnz"))))
+            "06g65r3z52layafrx50nipz4by6mjjbg6arp238fazqd3rzlbm79"))))
     (build-system haskell-build-system)
     (arguments `(#:tests? #f)) ; tests require a running postgresql server
     (inputs
