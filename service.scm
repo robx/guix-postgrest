@@ -2,6 +2,7 @@
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
   #:use-module (gnu packages databases)
+  #:use-module (guix records)
 
   #:export (postgrest-configuration
             postgrest-configuration?
