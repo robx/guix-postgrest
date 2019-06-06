@@ -6,6 +6,7 @@
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
   #:use-module (gnu system accounts)
+  #:use-module (gnu system shadow)
   #:use-module (ice-9 match)
 
   #:export (postgrest-configuration
