@@ -1,8 +1,9 @@
 (define-module (service)
+  #:use-module (guix records)
+  #:use-module (gnu packages databases)
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
-  #:use-module (gnu packages databases)
-  #:use-module (guix records)
+  #:use-module (gnu system accounts)
 
   #:export (postgrest-configuration
             postgrest-configuration?
