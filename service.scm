@@ -5,6 +5,7 @@
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
   #:use-module (gnu system accounts)
+  #:use-module (gnu system shadow)
 
   #:export (postgrest-configuration
             postgrest-configuration?
