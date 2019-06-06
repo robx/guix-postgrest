@@ -1,4 +1,5 @@
 (define-module (service)
+  #:use-module (guix gexp)
   #:use-module (guix records)
   #:use-module (gnu packages databases)
   #:use-module (gnu services)
