@@ -1,4 +1,7 @@
 (define-module (service)
+
+  #:use-module (postgrest)
+
   #:use-module (guix gexp)
   #:use-module (guix records)
   #:use-module (gnu packages admin)
