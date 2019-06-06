@@ -57,7 +57,7 @@
        (list (shepherd-service
               (provision '(postgrest))
               (documentation "Run the PostgREST daemon.")
-              (requirement '(user-processes postgresql))
+              (requirement '(user-processes postgres))
               (start #~(make-forkexec-constructor
                         '(#$(file-append postgrest "/bin/postgrest")
                           #$config-file)
