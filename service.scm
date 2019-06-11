@@ -3,6 +3,7 @@
   #:use-module (postgrest)
 
   #:use-module (guix gexp)
+  #:use-module (guix modules)
   #:use-module (guix records)
   #:use-module (gnu packages admin)
   #:use-module (gnu packages databases)
@@ -56,21 +57,38 @@
          (home-directory "/var/empty")
          (shell (file-append shadow "/sbin/nologin")))))
 
+(define* (logger-wrapper postgrest-exec postgrest-config)
+  "Return a derivation that builds a script to start postgrest with
+standard output and error redirected to syslog via logger."
+  (define exp
+    #~(begin
+       (use-modules (ice-9 popen))
+       (let* ((pid  (number->string (getpid)))
+              (name "postgrest")
+              (cmd  (string-append "logger -t " name " --id=" pid))
+              (log  (open-output-pipe cmd)))
+         (dup log 1)
+         (dup log 2)
+         (execl #$postgrest-exec #$postgrest-exec #$postgrest-config))))
+  (program-file "postgrest-wrapper" exp))
+
 (define postgrest-shepherd-service
   (match-lambda
     (($ <postgrest-configuration> postgrest db-uri db-schema db-anon-role
                                   server-port server-host config-file)
-     (let ((config-file
-            (or config-file
-              (default-postgrest.conf db-uri db-schema db-anon-role
-                                      server-port server-host))))
+     (let* ((config-file
+             (or config-file
+               (default-postgrest.conf db-uri db-schema db-anon-role
+                                       server-port server-host)))
+            (postgrest-wrapper
+             (logger-wrapper (file-append postgrest "/bin/postgrest") config-file)))
+
        (list (shepherd-service
               (provision '(postgrest))
               (documentation "Run the PostgREST daemon.")
               (requirement '(user-processes postgres))
               (start #~(make-forkexec-constructor
-                        '(#$(file-append postgrest "/bin/postgrest")
-                          #$config-file)
+                        '(#$postgrest-wrapper)
                         #:user "postgrest"
                         #:group "postgrest"))
               (stop #~(make-kill-destructor))))))))
