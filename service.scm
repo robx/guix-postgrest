@@ -57,20 +57,19 @@
          (home-directory "/var/empty")
          (shell (file-append shadow "/sbin/nologin")))))
 
-(define* (logger-wrapper postgrest-exec postgrest-config)
-  "Return a derivation that builds a script to start postgrest with
+(define* (logger-wrapper name exec . args)
+  "Return a derivation that builds a script to start a process with
 standard output and error redirected to syslog via logger."
   (define exp
     #~(begin
        (use-modules (ice-9 popen))
        (let* ((pid  (number->string (getpid)))
-              (name "postgrest")
-              (cmd  (string-append "logger -t " name " --id=" pid))
+              (cmd  (string-append "logger -t " #$name " --id=" pid))
               (log  (open-output-pipe cmd)))
          (dup log 1)
          (dup log 2)
-         (execl #$postgrest-exec #$postgrest-exec #$postgrest-config))))
-  (program-file "postgrest-wrapper" exp))
+         (execl #$exec #$exec #$@args))))
+  (program-file (string-append name "-logger") exp))
 
 (define postgrest-shepherd-service
   (match-lambda
@@ -80,15 +79,15 @@ standard output and error redirected to syslog via logger."
              (or config-file
                (default-postgrest.conf db-uri db-schema db-anon-role
                                        server-port server-host)))
-            (postgrest-wrapper
-             (logger-wrapper (file-append postgrest "/bin/postgrest") config-file)))
+            (postgrest-logger
+             (logger-wrapper "postgrest" (file-append postgrest "/bin/postgrest") config-file)))
 
        (list (shepherd-service
               (provision '(postgrest))
               (documentation "Run the PostgREST daemon.")
               (requirement '(user-processes postgres))
               (start #~(make-forkexec-constructor
-                        '(#$postgrest-wrapper)
+                        '(#$postgrest-logger)
                         #:user "postgrest"
                         #:group "postgrest"))
               (stop #~(make-kill-destructor))))))))
