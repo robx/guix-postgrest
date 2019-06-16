@@ -62,13 +62,13 @@
 standard output and error redirected to syslog via logger."
   (define exp
     #~(begin
-       (use-modules (ice-9 popen))
-       (let* ((pid  (number->string (getpid)))
-              (cmd  (string-append "logger -t " #$name " --id=" pid))
-              (log  (open-output-pipe cmd)))
-         (dup log 1)
-         (dup log 2)
-         (execl #$exec #$exec #$@args))))
+        (use-modules (ice-9 popen))
+        (let* ((pid  (number->string (getpid)))
+               (cmd  (string-append "logger -t " #$name " --id=" pid))
+               (log  (open-output-pipe cmd)))
+          (dup log 1)
+          (dup log 2)
+          (execl #$exec #$exec #$@args))))
   (program-file (string-append name "-logger") exp))
 
 (define postgrest-shepherd-service
@@ -77,8 +77,8 @@ standard output and error redirected to syslog via logger."
                                   server-port server-host config-file)
      (let* ((config-file
              (or config-file
-               (default-postgrest.conf db-uri db-schema db-anon-role
-                                       server-port server-host)))
+                 (default-postgrest.conf db-uri db-schema db-anon-role
+                   server-port server-host)))
             (postgrest-logger
              (logger-wrapper "postgrest" (file-append postgrest "/bin/postgrest") config-file)))
 
@@ -94,10 +94,10 @@ standard output and error redirected to syslog via logger."
 
 (define postgrest-service-type
   (service-type
-    (name 'postgrest)
-    (extensions
-      (list (service-extension shepherd-root-service-type
-                               postgrest-shepherd-service)
-            (service-extension account-service-type
-                               (const %postgrest-accounts))))
-    (default-value (postgrest-configuration))))
+   (name 'postgrest)
+   (extensions
+    (list (service-extension shepherd-root-service-type
+                             postgrest-shepherd-service)
+          (service-extension account-service-type
+                             (const %postgrest-accounts))))
+   (default-value (postgrest-configuration))))

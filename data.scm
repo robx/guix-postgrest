@@ -59,7 +59,7 @@
      "https://github.com/PaulJohnson/Ranged-sets")
     (synopsis "Ranged sets for Haskell")
     (description
-      "A ranged set is an ordered list of ranges.  This allows sets such as all reals x such that: . > (0.25 < x <= 0.75 or 1.4 <= x < 2.3 or 4.5 < x) . Alternatively you can have all strings s such that: . >    (\"F\" <= s < \"G\")")
+     "A ranged set is an ordered list of ranges.  This allows sets such as all reals x such that: . > (0.25 < x <= 0.75 or 1.4 <= x < 2.3 or 4.5 < x) . Alternatively you can have all strings s such that: . >    (\"F\" <= s < \"G\")")
     (license bsd-3)))
 
 (define-public ghc-data-bword

@@ -22,31 +22,31 @@
     (name "ghc-configurator-pg")
     (version "0.1.0.3")
     (source
-      (origin
-        (method url-fetch)
-        (uri (string-append
-               "https://hackage.haskell.org/package/configurator-pg/configurator-pg-"
-               version
-               ".tar.gz"))
-        (sha256
-          (base32
-            "0fc77ihnablff8v0kgr88pcc3rn41ca14bvfxr21jx807fn8g63p"))))
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/configurator-pg/configurator-pg-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0fc77ihnablff8v0kgr88pcc3rn41ca14bvfxr21jx807fn8g63p"))))
     (build-system haskell-build-system)
     (inputs
-      `(("ghc-attoparsec" ,ghc-attoparsec)
-        ("ghc-protolude" ,ghc-protolude)
-        ("ghc-scientific" ,ghc-scientific)))
+     `(("ghc-attoparsec" ,ghc-attoparsec)
+       ("ghc-protolude" ,ghc-protolude)
+       ("ghc-scientific" ,ghc-scientific)))
     (native-inputs
-      `(("ghc-hunit" ,ghc-hunit)
-        ("ghc-test-framework" ,ghc-test-framework)
-        ("ghc-test-framework-hunit"
-         ,ghc-test-framework-hunit)))
+     `(("ghc-hunit" ,ghc-hunit)
+       ("ghc-test-framework" ,ghc-test-framework)
+       ("ghc-test-framework-hunit"
+        ,ghc-test-framework-hunit)))
     (home-page
-      "https://github.com/robx/configurator-pg")
+     "https://github.com/robx/configurator-pg")
     (synopsis
-      "Reduced parser for configurator-ng config files")
+     "Reduced parser for configurator-ng config files")
     (description
-      "This module provides a simplified and updated interface to the configuration file format of <https://hackage.haskell.org/package/configurator configurator> and <https://hackage.haskell.org/package/configurator-ng configurator-ng>. Its aim is primarily to allow updating programs that depend on configurator-ng to new versions of GHC without changing the configuration file format.")
+     "This module provides a simplified and updated interface to the configuration file format of <https://hackage.haskell.org/package/configurator configurator> and <https://hackage.haskell.org/package/configurator-ng configurator-ng>. Its aim is primarily to allow updating programs that depend on configurator-ng to new versions of GHC without changing the configuration file format.")
     (license bsd-3)))
 
 (define-public ghc-cassava
@@ -75,13 +75,13 @@
        ("ghc-text-short" ,ghc-text-short)
        ("ghc-bytestring-builder"
         ,ghc-bytestring-builder)))
-    ;(native-inputs
-    ; `(("ghc-quickcheck" ,ghc-quickcheck)
-    ;   ("ghc-quickcheck-instances" ,ghc-quickcheck-instances)
-    ;   ("ghc-hunit" ,ghc-hunit)
-    ;   ("ghc-test-framework" ,ghc-test-framework)
-    ;   ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-    ;   ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)))
+                                        ;(native-inputs
+                                        ; `(("ghc-quickcheck" ,ghc-quickcheck)
+                                        ;   ("ghc-quickcheck-instances" ,ghc-quickcheck-instances)
+                                        ;   ("ghc-hunit" ,ghc-hunit)
+                                        ;   ("ghc-test-framework" ,ghc-test-framework)
+                                        ;   ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
+                                        ;   ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)))
     (arguments
      `(#:tests? ; required outdated QuickCheck==2.10.*
        #f

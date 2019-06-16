@@ -14,25 +14,25 @@
     (name "ghc-concurrent-output")
     (version "1.10.9")
     (source
-      (origin
-        (method url-fetch)
-        (uri (string-append
-               "https://hackage.haskell.org/package/concurrent-output/concurrent-output-"
-               version
-               ".tar.gz"))
-        (sha256
-          (base32
-            "0mwf155w89nbbkjln7hhbn8k3f8p0ylcvgrg31cm7ijpx4499i4c"))))
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/concurrent-output/concurrent-output-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0mwf155w89nbbkjln7hhbn8k3f8p0ylcvgrg31cm7ijpx4499i4c"))))
     (build-system haskell-build-system)
     (inputs
-      `(("ghc-async" ,ghc-async)
-        ("ghc-exceptions" ,ghc-exceptions)
-        ("ghc-ansi-terminal" ,ghc-ansi-terminal)
-        ("ghc-terminal-size" ,ghc-terminal-size)))
+     `(("ghc-async" ,ghc-async)
+       ("ghc-exceptions" ,ghc-exceptions)
+       ("ghc-ansi-terminal" ,ghc-ansi-terminal)
+       ("ghc-terminal-size" ,ghc-terminal-size)))
     (home-page
-      "http://hackage.haskell.org/package/concurrent-output")
+     "http://hackage.haskell.org/package/concurrent-output")
     (synopsis
-      "Ungarble output from several threads or commands")
+     "Ungarble output from several threads or commands")
     (description
      "Lets multiple threads and external processes concurrently output to the console, without it getting all garbled up. . Built on top of that is a way of defining multiple output regions, which are automatically laid out on the screen and can be individually updated by concurrent threads. Can be used for progress displays etc. . <<https://joeyh.name/code/concurrent-output/demo2.gif>>")
     (license bsd-2)))
@@ -127,19 +127,19 @@
     (name "ghc-bug")
     (version "1.0.1")
     (source
-      (origin
-        (method url-fetch)
-        (uri (string-append
-               "https://hackage.haskell.org/package/bug/bug-"
-               version
-               ".tar.gz"))
-        (sha256
-          (base32
-            "1xfynvp5fyn46gg3p5qq9cmb1dnw2dyf3bz6w5wdvikfvs19dwhq"))))
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/bug/bug-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1xfynvp5fyn46gg3p5qq9cmb1dnw2dyf3bz6w5wdvikfvs19dwhq"))))
     (build-system haskell-build-system)
     (home-page
-      "https://github.com/nikita-volkov/bug")
+     "https://github.com/nikita-volkov/bug")
     (synopsis
-      "Better alternatives to the \"error\" function")
+     "Better alternatives to the \"error\" function")
     (description "")
     (license expat)))

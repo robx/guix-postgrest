@@ -112,14 +112,14 @@
        ("ghc-loch-th" ,ghc-loch-th)
        ("ghc-placeholders" ,ghc-placeholders)
        ("ghc-base-prelude" ,ghc-base-prelude)))
-    ;(native-inputs
-    ; `(("ghc-bug" ,ghc-bug)
-    ;   ("ghc-quickcheck" ,ghc-quickcheck)
-    ;   ("ghc-quickcheck-instances" ,ghc-quickcheck-instances)
-    ;   ("ghc-rerebase" ,ghc-rerebase)
-    ;   ("ghc-tasty" ,ghc-tasty)
-    ;   ("ghc-tasty-hunit" ,ghc-tasty-hunit)
-    ;   ("ghc-tasty-quickchec" ,ghc-tasty-quickcheck)))
+                                        ;(native-inputs
+                                        ; `(("ghc-bug" ,ghc-bug)
+                                        ;   ("ghc-quickcheck" ,ghc-quickcheck)
+                                        ;   ("ghc-quickcheck-instances" ,ghc-quickcheck-instances)
+                                        ;   ("ghc-rerebase" ,ghc-rerebase)
+                                        ;   ("ghc-tasty" ,ghc-tasty)
+                                        ;   ("ghc-tasty-hunit" ,ghc-tasty-hunit)
+                                        ;   ("ghc-tasty-quickchec" ,ghc-tasty-quickcheck)))
     (arguments
      `(#:tests?  ; tests require a running postgres
        #f

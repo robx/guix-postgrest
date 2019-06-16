@@ -94,40 +94,40 @@
     (name "ghc-websockets")
     (version "0.12.5.3")
     (source
-      (origin
-        (method url-fetch)
-        (uri (string-append
-               "https://hackage.haskell.org/package/websockets/websockets-"
-               version
-               ".tar.gz"))
-        (sha256
-          (base32
-            "0mkxl7iwl5pl2w0svji9248v4c0hi45k725jj5ybaknb73650ns4"))))
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/websockets/websockets-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0mkxl7iwl5pl2w0svji9248v4c0hi45k725jj5ybaknb73650ns4"))))
     (build-system haskell-build-system)
     (inputs
-      `(("ghc-attoparsec" ,ghc-attoparsec)
-        ("ghc-base64-bytestring" ,ghc-base64-bytestring)
-        ("ghc-bytestring-builder"
-         ,ghc-bytestring-builder)
-        ("ghc-case-insensitive" ,ghc-case-insensitive)
-        ("ghc-network" ,ghc-network)
-        ("ghc-random" ,ghc-random)
-        ("ghc-sha" ,ghc-sha)
-        ("ghc-streaming-commons" ,ghc-streaming-commons)
-        ("ghc-entropy" ,ghc-entropy)))
+     `(("ghc-attoparsec" ,ghc-attoparsec)
+       ("ghc-base64-bytestring" ,ghc-base64-bytestring)
+       ("ghc-bytestring-builder"
+        ,ghc-bytestring-builder)
+       ("ghc-case-insensitive" ,ghc-case-insensitive)
+       ("ghc-network" ,ghc-network)
+       ("ghc-random" ,ghc-random)
+       ("ghc-sha" ,ghc-sha)
+       ("ghc-streaming-commons" ,ghc-streaming-commons)
+       ("ghc-entropy" ,ghc-entropy)))
     (native-inputs
-      `(("ghc-hunit" ,ghc-hunit)
-        ("ghc-quickcheck" ,ghc-quickcheck)
-        ("ghc-test-framework" ,ghc-test-framework)
-        ("ghc-test-framework-hunit"
-         ,ghc-test-framework-hunit)
-        ("ghc-test-framework-quickcheck2"
-         ,ghc-test-framework-quickcheck2)))
+     `(("ghc-hunit" ,ghc-hunit)
+       ("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-test-framework" ,ghc-test-framework)
+       ("ghc-test-framework-hunit"
+        ,ghc-test-framework-hunit)
+       ("ghc-test-framework-quickcheck2"
+        ,ghc-test-framework-quickcheck2)))
     (home-page "http://jaspervdj.be/websockets")
     (synopsis
-      "A sensible and clean way to write WebSocket-capable servers in Haskell.")
+     "A sensible and clean way to write WebSocket-capable servers in Haskell.")
     (description
-      "This library allows you to write WebSocket-capable servers. . An example server: <https://github.com/jaspervdj/websockets/blob/master/example/server.lhs> . An example client: <https://github.com/jaspervdj/websockets/blob/master/example/client.hs> . See also: . * The specification of the WebSocket protocol: <http://www.whatwg.org/specs/web-socket-protocol/> . * The JavaScript API for dealing with WebSockets: <http://www.w3.org/TR/websockets/>")
+     "This library allows you to write WebSocket-capable servers. . An example server: <https://github.com/jaspervdj/websockets/blob/master/example/server.lhs> . An example client: <https://github.com/jaspervdj/websockets/blob/master/example/client.hs> . See also: . * The specification of the WebSocket protocol: <http://www.whatwg.org/specs/web-socket-protocol/> . * The JavaScript API for dealing with WebSockets: <http://www.w3.org/TR/websockets/>")
     (license bsd-3)))
 
 (define-public ghc-wai-websockets
@@ -135,30 +135,30 @@
     (name "ghc-wai-websockets")
     (version "3.0.1.2")
     (source
-      (origin
-        (method url-fetch)
-        (uri (string-append
-               "https://hackage.haskell.org/package/wai-websockets/wai-websockets-"
-               version
-               ".tar.gz"))
-        (sha256
-          (base32
-            "0b2xmdsrsqpssyib53wbr6r8hf75789ndyyanv37sv99iyqcwz4i"))))
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/wai-websockets/wai-websockets-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0b2xmdsrsqpssyib53wbr6r8hf75789ndyyanv37sv99iyqcwz4i"))))
     (build-system haskell-build-system)
     (inputs
-      `(("ghc-wai" ,ghc-wai)
-        ("ghc-case-insensitive" ,ghc-case-insensitive)
-        ("ghc-network" ,ghc-network)
-        ("ghc-websockets" ,ghc-websockets)
-        ("ghc-http-types" ,ghc-http-types)
-        ("ghc-warp" ,ghc-warp)
-        ("ghc-wai-app-static" ,ghc-wai-app-static)
-        ("ghc-file-embed" ,ghc-file-embed)))
+     `(("ghc-wai" ,ghc-wai)
+       ("ghc-case-insensitive" ,ghc-case-insensitive)
+       ("ghc-network" ,ghc-network)
+       ("ghc-websockets" ,ghc-websockets)
+       ("ghc-http-types" ,ghc-http-types)
+       ("ghc-warp" ,ghc-warp)
+       ("ghc-wai-app-static" ,ghc-wai-app-static)
+       ("ghc-file-embed" ,ghc-file-embed)))
     (home-page "http://github.com/yesodweb/wai")
     (synopsis
-      "Provide a bridge between WAI and the websockets package.")
+     "Provide a bridge between WAI and the websockets package.")
     (description
-      "API docs and the README are available at <http://www.stackage.org/package/wai-websockets>.")
+     "API docs and the README are available at <http://www.stackage.org/package/wai-websockets>.")
     (license expat)))
 
 (define-public ghc-wai-app-static
@@ -166,47 +166,47 @@
     (name "ghc-wai-app-static")
     (version "3.1.6.3")
     (source
-      (origin
-        (method url-fetch)
-        (uri (string-append
-               "https://hackage.haskell.org/package/wai-app-static/wai-app-static-"
-               version
-               ".tar.gz"))
-        (sha256
-          (base32
-            "0s6bpz5gmjy797bnnw1y5mwy9761h46bjp1srnrh7cxlnvm93c4c"))))
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/wai-app-static/wai-app-static-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0s6bpz5gmjy797bnnw1y5mwy9761h46bjp1srnrh7cxlnvm93c4c"))))
     (build-system haskell-build-system)
     (inputs
-      `(("ghc-wai" ,ghc-wai)
-        ("ghc-http-types" ,ghc-http-types)
-        ("ghc-unix-compat" ,ghc-unix-compat)
-        ("ghc-old-locale" ,ghc-old-locale)
-        ("ghc-file-embed" ,ghc-file-embed)
-        ("ghc-cryptonite" ,ghc-cryptonite)
-        ("ghc-memory" ,ghc-memory)
-        ("ghc-http-date" ,ghc-http-date)
-        ("ghc-blaze-html" ,ghc-blaze-html)
-        ("ghc-blaze-markup" ,ghc-blaze-markup)
-        ("ghc-mime-types" ,ghc-mime-types)
-        ("ghc-unordered-containers"
-         ,ghc-unordered-containers)
-        ("ghc-zlib" ,ghc-zlib)
-        ("ghc-wai-extra" ,ghc-wai-extra)
-        ("ghc-optparse-applicative"
-         ,ghc-optparse-applicative)
-        ("ghc-warp" ,ghc-warp)))
+     `(("ghc-wai" ,ghc-wai)
+       ("ghc-http-types" ,ghc-http-types)
+       ("ghc-unix-compat" ,ghc-unix-compat)
+       ("ghc-old-locale" ,ghc-old-locale)
+       ("ghc-file-embed" ,ghc-file-embed)
+       ("ghc-cryptonite" ,ghc-cryptonite)
+       ("ghc-memory" ,ghc-memory)
+       ("ghc-http-date" ,ghc-http-date)
+       ("ghc-blaze-html" ,ghc-blaze-html)
+       ("ghc-blaze-markup" ,ghc-blaze-markup)
+       ("ghc-mime-types" ,ghc-mime-types)
+       ("ghc-unordered-containers"
+        ,ghc-unordered-containers)
+       ("ghc-zlib" ,ghc-zlib)
+       ("ghc-wai-extra" ,ghc-wai-extra)
+       ("ghc-optparse-applicative"
+        ,ghc-optparse-applicative)
+       ("ghc-warp" ,ghc-warp)))
     (native-inputs
-      `(("ghc-hspec" ,ghc-hspec)
-        ("ghc-network" ,ghc-network)
-        ("ghc-temporary" ,ghc-temporary)
-        ("ghc-mockery" ,ghc-mockery)))
+     `(("ghc-hspec" ,ghc-hspec)
+       ("ghc-network" ,ghc-network)
+       ("ghc-temporary" ,ghc-temporary)
+       ("ghc-mockery" ,ghc-mockery)))
     (arguments
-      `(#:cabal-revision
-        ("2"
-         "17wd7cxqwimhww53qihchrr62hnzirggk86migi9bcwv4wjykmqc")))
+     `(#:cabal-revision
+       ("2"
+        "17wd7cxqwimhww53qihchrr62hnzirggk86migi9bcwv4wjykmqc")))
     (home-page
-      "http://www.yesodweb.com/book/web-application-interface")
+     "http://www.yesodweb.com/book/web-application-interface")
     (synopsis "WAI application for static serving")
     (description
-      "API docs and the README are available at <http://www.stackage.org/package/wai-app-static>.")
+     "API docs and the README are available at <http://www.stackage.org/package/wai-app-static>.")
     (license expat)))
