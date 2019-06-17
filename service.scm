@@ -63,9 +63,10 @@ standard output and error redirected to syslog via logger."
   (define exp
     #~(begin
         (use-modules (ice-9 popen))
-        (let* ((pid  (number->string (getpid)))
-               (cmd  (string-append "logger -t " #$name " --id=" pid))
-               (log  (open-output-pipe cmd)))
+        (let* ((pid    (number->string (getpid)))
+               (logger #$(file-append inetutils "/bin/logger"))
+               (args   (list logger "-t" #$name (string-append "--id=" pid))
+               (pipe   (open-pipe* OPEN_WRITE logger . args)))
           (dup log 1)
           (dup log 2)
           (execl #$exec #$exec #$@args))))
@@ -80,7 +81,9 @@ standard output and error redirected to syslog via logger."
                  (default-postgrest.conf db-uri db-schema db-anon-role
                    server-port server-host)))
             (postgrest-logger
-             (logger-wrapper "postgrest" (file-append postgrest "/bin/postgrest") config-file)))
+             (logger-wrapper "postgrest"
+                             (file-append postgrest "/bin/postgrest")
+                             config-file)))
 
        (list (shepherd-service
               (provision '(postgrest))
