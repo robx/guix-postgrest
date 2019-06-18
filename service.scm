@@ -65,11 +65,11 @@ standard output and error redirected to syslog via logger."
         (use-modules (ice-9 popen))
         (let* ((pid    (number->string (getpid)))
                (logger #$(file-append inetutils "/bin/logger"))
-               (args   (list logger "-t" #$name (string-append "--id=" pid))
+               (args   (list logger "-t" #$name (string-append "--id=" pid)))
                (pipe   (open-pipe* OPEN_WRITE logger . args)))
           (dup pipe 1)
           (dup pipe 2)
-          (execl #$exec #$exec #$@args)))))
+          (execl #$exec #$exec #$@args))))
   (program-file (string-append name "-logger") exp))
 
 (define postgrest-shepherd-service
