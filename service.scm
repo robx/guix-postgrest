@@ -67,8 +67,8 @@ standard output and error redirected to syslog via logger."
                (logger #$(file-append inetutils "/bin/logger"))
                (args   (list logger "-t" #$name (string-append "--id=" pid))
                (pipe   (open-pipe* OPEN_WRITE logger . args)))
-          (dup log 1)
-          (dup log 2)
+          (dup pipe 1)
+          (dup pipe 2)
           (execl #$exec #$exec #$@args)))))
   (program-file (string-append name "-logger") exp))
 
