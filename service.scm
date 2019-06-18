@@ -65,7 +65,7 @@ standard output and error redirected to syslog via logger."
         (use-modules (ice-9 popen))
         (let* ((pid    (number->string (getpid)))
                (logger #$(file-append inetutils "/bin/logger"))
-               (args   (list logger "-t" #$name (string-append "--id=" pid)))
+               (args   (list "-t" #$name (string-append "--id=" pid)))
                (pipe   (apply open-pipe* OPEN_WRITE logger args)))
           (dup pipe 1)
           (dup pipe 2)
