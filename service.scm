@@ -69,7 +69,7 @@ standard output and error redirected to syslog via logger."
                (pipe   (open-pipe* OPEN_WRITE logger . args)))
           (dup log 1)
           (dup log 2)
-          (execl #$exec #$exec #$@args))))
+          (execl #$exec #$exec #$@args)))))
   (program-file (string-append name "-logger") exp))
 
 (define postgrest-shepherd-service
