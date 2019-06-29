@@ -32,6 +32,8 @@
                  (default "public"))
   (db-anon-role  postgrest-configuration-db-anon-role
                  (default "postgrest-anon"))
+  (jwt-secret    postgrest-configuration-jwt-secret
+                 (default #f))
   (server-host   postgrest-configuration-server-host
                  (default "127.0.0.1"))
   (server-port   postgrest-configuration-server-port
@@ -39,13 +41,16 @@
   (config-file   postgrest-configuration-config-file
                  (default #f)))
 
-(define (default-postgrest.conf db-uri db-schema db-anon-role server-host server-port)
+(define (default-postgrest.conf db-uri db-schema db-anon-role jwt-secret server-host server-port)
   (mixed-text-file "postgrest.conf"
+                   "server-host = \"" server-host "\"\n"
+                   "server-port = " (number->string server-port) "\n"
                    "db-uri = \"" db-uri "\"\n"
                    "db-schema = \"" db-schema "\"\n"
                    "db-anon-role = \"" db-anon-role "\"\n"
-                   "server-host = \"" server-host "\"\n"
-                   "server-port = " (number->string server-port) "\n"))
+                   (if jwt-secret
+                     (string-append "jwt-secret = \"" jwt-secret "\"\n")
+                     "")))
 
 (define %postgrest-accounts
   (list (user-group (name "postgrest") (system? #t))
@@ -75,11 +80,11 @@ standard output and error redirected to syslog via logger."
 (define postgrest-shepherd-service
   (match-lambda
     (($ <postgrest-configuration> postgrest db-uri db-schema db-anon-role
-                                  server-port server-host config-file)
+                                  jwt-secret server-port server-host config-file)
      (let* ((config-file
              (or config-file
                  (default-postgrest.conf db-uri db-schema db-anon-role
-                   server-port server-host)))
+                   jwt-secret server-port server-host)))
             (postgrest-logger
              (logger-wrapper "postgrest"
                              (file-append postgrest "/bin/postgrest")
