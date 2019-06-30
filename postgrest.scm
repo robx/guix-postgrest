@@ -25,18 +25,17 @@
 (define-public postgrest
   (package
     (name "postgrest")
-    (version "5.2.0")
+    (version "6.0.0")
     (source
      (origin
-       (method git-fetch)
-       (file-name (git-file-name name version))
-       (uri
-        (git-reference
-         (url "https://github.com/robx/postgrest.git")
-         (commit "guix-0.3")))
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/postgrest/postgrest-"
+             version
+             ".tar.gz"))
        (sha256
         (base32
-         "06g65r3z52layafrx50nipz4by6mjjbg6arp238fazqd3rzlbm79"))))
+         "0m0zplw8f1ncnbmrnsylq2z7pv8r86hsndsgbld52wfdc85b3r0z"))))
     (build-system haskell-build-system)
     (arguments `(#:tests? #f)) ; tests require a running postgresql server
     (inputs

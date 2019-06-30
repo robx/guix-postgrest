@@ -5,6 +5,7 @@
   #:use-module (guix build-system haskell)
 
   #:use-module (data)
+  #:use-module (control)
 
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check))
@@ -38,7 +39,7 @@
 (define-public ghc-text-builder
   (package
     (name "ghc-text-builder")
-    (version "0.5.4.3")
+    (version "0.6.1.2")
     (source
      (origin
        (method url-fetch)
@@ -48,10 +49,11 @@
              ".tar.gz"))
        (sha256
         (base32
-         "1xcyi3bw44anzah5c4c0wm18vnyqsr3q7ww2kp2psk41ql6gan2h"))))
+         "0z42bgizn6ya89bnsdjk14y7k6mm5zj1782p97dc1vj9ym81ra18"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-base-prelude" ,ghc-base-prelude)
+       ("ghc-deferred-fold" ,ghc-deferred-folds)
        ("ghc-semigroups" ,ghc-semigroups)))
     (native-inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)

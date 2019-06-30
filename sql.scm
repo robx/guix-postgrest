@@ -80,7 +80,7 @@
 (define-public ghc-hasql
   (package
     (name "ghc-hasql")
-    (version "1.3.0.3")
+    (version "1.4")
     (source
      (origin
        (method url-fetch)
@@ -90,7 +90,7 @@
              ".tar.gz"))
        (sha256
         (base32
-         "01vl4p67yhcm8cmbmajgyd7ggj3p5f6350f8sky8kv3dn31wg6ji"))))
+         "0j2arb96i1dinpz1yxl2cjl4qhbljk9yph52cj9az50mvl8vx3w4"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-attoparsec" ,ghc-attoparsec)
@@ -122,10 +122,7 @@
                                         ;   ("ghc-tasty-quickchec" ,ghc-tasty-quickcheck)))
     (arguments
      `(#:tests?  ; tests require a running postgres
-       #f
-       #:cabal-revision
-       ("2"
-        "14063k0dald0i2cqk70kdja1df587vn8vrzgw3rb62nxwycr0r9b")))
+       #f))
     (home-page
      "https://github.com/nikita-volkov/hasql")
     (synopsis
@@ -137,7 +134,7 @@
 (define-public ghc-hasql-pool
   (package
     (name "ghc-hasql-pool")
-    (version "0.5")
+    (version "0.5.1")
     (source
      (origin
        (method url-fetch)
@@ -147,7 +144,7 @@
              ".tar.gz"))
        (sha256
         (base32
-         "0bsxh9yf5p2iknrnssrif563n42ih14cj95qmy9z2lz2kbycscrs"))))
+         "0agl5ilp0amsp9pidhmgivdyaq43x3xi7hb80c91n9l92pv6163k"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-resource-pool" ,ghc-resource-pool)
@@ -163,7 +160,7 @@
 (define-public ghc-hasql-transaction
   (package
     (name "ghc-hasql-transaction")
-    (version "0.7")
+    (version "0.7.2")
     (source
      (origin
        (method url-fetch)
@@ -173,7 +170,7 @@
              ".tar.gz"))
        (sha256
         (base32
-         "1kvzj16mw471z2vgm27k0nfwfgf5cq3w6qaqwqz4247p11dkrjyy"))))
+         "13d5zisr34bdbiypvpcb114d4c9yi6pyb9wnhigqpwd90vzpzsb5"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-hasql" ,ghc-hasql)
