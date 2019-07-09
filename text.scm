@@ -10,32 +10,6 @@
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check))
 
-(define-public ghc-wl-pprint-annotated
-  (package
-    (name "ghc-wl-pprint-annotated")
-    (version "0.1.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/wl-pprint-annotated/wl-pprint-annotated-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1br7qyf27iza213inwhf9bm2k6in0zbmfw6w4clqlc9f9cj2nrkb"))))
-    (build-system haskell-build-system)
-    (native-inputs
-     `(("ghc-tasty" ,ghc-tasty)
-       ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
-    (home-page
-     "https://github.com/minad/wl-pprint-annotated#readme")
-    (synopsis
-     "Pretty printer with annotation support")
-    (description
-     "Wadler/Leijen pretty printer with support for annotations and modernized API. Annotations are useful for coloring. See wl-pprint-console.")
-    (license bsd-3)))
-
 (define-public ghc-text-builder
   (package
     (name "ghc-text-builder")

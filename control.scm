@@ -9,34 +9,6 @@
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check))
 
-(define-public ghc-concurrent-output
-  (package
-    (name "ghc-concurrent-output")
-    (version "1.10.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/concurrent-output/concurrent-output-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0mwf155w89nbbkjln7hhbn8k3f8p0ylcvgrg31cm7ijpx4499i4c"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-async" ,ghc-async)
-       ("ghc-exceptions" ,ghc-exceptions)
-       ("ghc-ansi-terminal" ,ghc-ansi-terminal)
-       ("ghc-terminal-size" ,ghc-terminal-size)))
-    (home-page
-     "http://hackage.haskell.org/package/concurrent-output")
-    (synopsis
-     "Ungarble output from several threads or commands")
-    (description
-     "Lets multiple threads and external processes concurrently output to the console, without it getting all garbled up. . Built on top of that is a way of defining multiple output regions, which are automatically laid out on the screen and can be individually updated by concurrent threads. Can be used for progress displays etc. . <<https://joeyh.name/code/concurrent-output/demo2.gif>>")
-    (license bsd-2)))
-
 (define-public ghc-retry
   (package
     (name "ghc-retry")

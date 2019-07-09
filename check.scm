@@ -47,7 +47,7 @@
 (define-public ghc-tasty-hedgehog
   (package
     (name "ghc-tasty-hedgehog")
-    (version "1.0.0.1")
+    (version "0.2.0.0")
     (source
      (origin
        (method url-fetch)
@@ -57,8 +57,12 @@
              ".tar.gz"))
        (sha256
         (base32
-         "1mbg5q0c0xfrk4npfj60pi693igb7r5l78x6xf9fk2jglw0nmxhz"))))
+         "10m1akbiblnjq9ljk469725k30b254d36d267rk51z2f171py42s"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("6"
+        "0d7s1474pvnyad6ilr5rvpama7s468ya9ns4ksbl0827z9vvga43")))
     (inputs
      `(("ghc-tagged" ,ghc-tagged)
        ("ghc-tasty" ,ghc-tasty)
@@ -71,46 +75,4 @@
     (synopsis "Integration for tasty and hedgehog.")
     (description
      "Integrates the <https://hackage.haskell.org/package/hedgehog hedgehog testing library> with the <https://hackage.haskell.org/package/tasty tasty testing framework>.")
-    (license bsd-3)))
-
-(define-public ghc-hedgehog
-  (package
-    (name "ghc-hedgehog")
-    (version "1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/hedgehog/hedgehog-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1np9xg58x20kalfci9dxbd4wsg0sl3ka56ragzy3i9p0nx29pmns"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-ansi-terminal" ,ghc-ansi-terminal)
-       ("ghc-async" ,ghc-async)
-       ("ghc-concurrent-output" ,ghc-concurrent-output)
-       ("ghc-exceptions" ,ghc-exceptions)
-       ("ghc-fail" ,ghc-fail)
-       ("ghc-lifted-async" ,ghc-lifted-async)
-       ("ghc-mmorph" ,ghc-mmorph)
-       ("ghc-monad-control" ,ghc-monad-control)
-       ("ghc-pretty-show" ,ghc-pretty-show)
-       ("ghc-primitive" ,ghc-primitive)
-       ("ghc-random" ,ghc-random)
-       ("ghc-resourcet" ,ghc-resourcet)
-       ("ghc-semigroups" ,ghc-semigroups)
-       ("ghc-transformers-base" ,ghc-transformers-base)
-       ("ghc-wl-pprint-annotated"
-        ,ghc-wl-pprint-annotated)))
-    (arguments
-     `(#:cabal-revision
-       ("1"
-        "1b2hvd3z5mnwfdp5xwdwrh2f1l0wshnnz6ggak2dqqm57wyifdql")))
-    (home-page "https://hedgehog.qa")
-    (synopsis "Release with confidence.")
-    (description
-     "<http://hedgehog.qa/ Hedgehog> automatically generates a comprehensive array of test cases, exercising your software in ways human testers would never imagine. . Generate hundreds of test cases automatically, exposing even the most insidious of corner cases. Failures are automatically simplified, giving developers coherent, intelligible error messages. . To get started quickly, see the <https://github.com/hedgehogqa/haskell-hedgehog/tree/master/hedgehog-example examples>.")
     (license bsd-3)))
