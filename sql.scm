@@ -8,11 +8,11 @@
   #:use-module (data)
   #:use-module (more-data)
   #:use-module (template)
-  #:use-module (text)
 
   #:use-module (gnu packages databases)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-web))
 
 (define-public ghc-postgresql-binary

@@ -10,11 +10,11 @@
   #:use-module (core)
   #:use-module (data)
   #:use-module (more-data)
-  #:use-module (text)
 
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-web))
 
 (define-public ghc-configurator-pg

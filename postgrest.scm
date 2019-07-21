@@ -15,7 +15,6 @@
   #:use-module (more-data)
   #:use-module (sql)
   #:use-module (template)
-  #:use-module (text)
   #:use-module (wai)
   #:use-module (postgrest-deps)
 

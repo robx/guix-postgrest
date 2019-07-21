@@ -5,9 +5,9 @@
   #:use-module (guix build-system haskell)
 
   #:use-module (more-data)
-  #:use-module (text)
 
   #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check))
 
 (define-public ghc-only
@@ -85,28 +85,6 @@
      "Extra operations on binary words of fixed length")
     (description
      "This package provides extra (vs. 'Data.Bits') operations on binary words of fixed length.")
-    (license bsd-3)))
-
-(define-public ghc-data-checked
-  (package
-    (name "ghc-data-checked")
-    (version "0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/data-checked/data-checked-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0xjn7iqlsgi51h8gz4x40kc2qb5lwf6nw5kjwgkck1w5gjfd11yw"))))
-    (build-system haskell-build-system)
-    (home-page "https://github.com/mvv/data-checked")
-    (synopsis
-     "Type-indexed runtime-checked properties")
-    (description
-     "This package provides a (phantom) type-indexed newtype evidence-wrapper for values that are checked to satisfy the property associated with the type.")
     (license bsd-3)))
 
 (define-public ghc-data-dword
