@@ -10,68 +10,6 @@
   #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-web))
 
-(define-public ghc-postgresql-binary
-  (package
-    (name "ghc-postgresql-binary")
-    (version "0.12.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/postgresql-binary/postgresql-binary-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "181npyfnz9xbmwjfzcrmbwlzw2xchy2fsibiw6d3c01y45xv607v"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-binary-parser" ,ghc-binary-parser)
-       ("ghc-bytestring-strict-builder"
-        ,ghc-bytestring-strict-builder)
-       ("ghc-aeson" ,ghc-aeson)
-       ("ghc-uuid" ,ghc-uuid)
-       ("ghc-scientific" ,ghc-scientific)
-       ("ghc-vector" ,ghc-vector)
-       ("ghc-network-ip" ,ghc-network-ip)
-       ("ghc-unordered-containers"
-        ,ghc-unordered-containers)
-       ("ghc-loch-th" ,ghc-loch-th)
-       ("ghc-placeholders" ,ghc-placeholders)
-       ("ghc-base-prelude" ,ghc-base-prelude)))
-    (arguments `(#:tests? #f)) ; relies on running postgres
-    (home-page
-     "https://github.com/nikita-volkov/postgresql-binary")
-    (synopsis
-     "Encoders and decoders for the PostgreSQL's binary format")
-    (description
-     "An API for dealing with PostgreSQL's binary data format. . It can be used to implement performant bindings to Postgres. E.g., <http://hackage.haskell.org/package/hasql \"hasql\"> is based on this library. . It supports all Postgres versions starting from 8.3 and is tested against 8.3, 9.3 and 9.5 with the @integer_datetimes@ setting off and on.")
-    (license expat)))
-
-(define-public ghc-postgresql-libpq
-  (package
-    (name "ghc-postgresql-libpq")
-    (version "0.9.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/postgresql-libpq/postgresql-libpq-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1y86kysakfcf3zq252yl2llrx3765vxvkdwda4q5ql7ikv3m786f"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("postgresql" ,postgresql)))
-    (home-page
-     "https://github.com/phadej/postgresql-libpq")
-    (synopsis "low-level binding to libpq")
-    (description
-     "This is a binding to libpq: the C application programmer's interface to PostgreSQL. libpq is a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.")
-    (license bsd-3)))
-
 (define-public ghc-hasql
   (package
     (name "ghc-hasql")
