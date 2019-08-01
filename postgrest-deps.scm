@@ -4,9 +4,6 @@
   #:use-module (guix packages)
   #:use-module (guix build-system haskell)
 
-  #:use-module (data)
-  #:use-module (more-data)
-
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)

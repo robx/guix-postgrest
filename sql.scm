@@ -4,11 +4,6 @@
   #:use-module (guix packages)
   #:use-module (guix build-system haskell)
 
-  #:use-module (bytestring)
-  #:use-module (data)
-  #:use-module (more-data)
-  #:use-module (template)
-
   #:use-module (gnu packages databases)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
