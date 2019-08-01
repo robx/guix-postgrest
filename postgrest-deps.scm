@@ -4,10 +4,6 @@
   #:use-module (guix packages)
   #:use-module (guix build-system haskell)
 
-  #:use-module (check)
-  #:use-module (containers)
-  #:use-module (control)
-  #:use-module (core)
   #:use-module (data)
   #:use-module (more-data)
 

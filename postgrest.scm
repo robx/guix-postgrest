@@ -7,10 +7,6 @@
   #:use-module (guix packages)
 
   #:use-module (bytestring)
-  #:use-module (check)
-  #:use-module (containers)
-  #:use-module (control)
-  #:use-module (core)
   #:use-module (data)
   #:use-module (more-data)
   #:use-module (sql)
