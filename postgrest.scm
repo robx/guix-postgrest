@@ -6,9 +6,6 @@
   #:use-module (guix licenses)
   #:use-module (guix packages)
 
-  #:use-module (sql)
-  #:use-module (postgrest-deps)
-
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-web))
